@@ -1,6 +1,13 @@
 package PhillMFC.simplecrud.Entity;
 
 import java.util.Random;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
+
+import PhillMFC.simplecrud.Service.GenerateAccountNumber;
+import PhillMFC.simplecrud.Service.GenerateAgencyNumber;
+import jakarta.annotation.PostConstruct;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -29,43 +36,9 @@ public class User {
     @Column(name = "surname")
     private String surname;
 
-    @Column(name = "cpf", unique = true)
+    @Column(name = "cpf", unique = true, nullable = false)
     private String cpf;
 
     @Column(name = "address")
     private String address;
-
-    @Column(name = "account_number", unique = true)
-    private String accountNumber = generateAccountNumber();
-
-    @Column(name = "agency_number", unique = true)
-    private String agencyNumber = generateAgencyNumber();
-
-    private String generateAccountNumber(){
-
-        Random digit = new Random();
-        String accountNumber = "";
-
-        for(int i = 0; i<4; i++){
-            
-            this.accountNumber += Integer.toString(digit.nextInt(10));
-        }
-
-        return accountNumber;
-    }
-
-    private String generateAgencyNumber(){
-
-        Random digit = new Random();
-        String agencyNumber = "";
-
-        for(int i = 0; i<10; i++){
-            if(i==8)
-            this.accountNumber += "-";
-            
-            this.accountNumber += Integer.toString(digit.nextInt(10));
-        }
-
-        return agencyNumber;
-    }
 }

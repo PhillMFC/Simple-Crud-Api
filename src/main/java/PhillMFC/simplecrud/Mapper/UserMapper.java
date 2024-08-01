@@ -11,9 +11,7 @@ public class UserMapper {
             user.getName(),
             user.getSurname(),
             user.getCpf(),
-            user.getAddress(),
-            user.getAccountNumber(),
-            user.getAgencyNumber()
+            user.getAddress()
         );
     }
 
@@ -23,9 +21,7 @@ public class UserMapper {
             userDto.getName(),
             userDto.getSurname(),
             userDto.getCpf(),
-            userDto.getAddress(),
-            userDto.getAccountNumber(),
-            userDto.getAgencyNumber()
+            userDto.getAddress()
         );
     }
 }

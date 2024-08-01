@@ -15,6 +15,4 @@ public class UserDto {
     private String surname;
     private String cpf;
     private String address;
-    private String accountNumber;
-    private String agencyNumber;
 }
